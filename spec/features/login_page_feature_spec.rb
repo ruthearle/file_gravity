@@ -11,7 +11,7 @@ feature 'Login' do
     fill_in 'Email Address', with: "email@email.com"
     fill_in 'Password', with: "password"
     click_on 'Login'
-    expect(current_path).to eq '/file_gravity'
+    expect(current_path).to eq '/files'
     expect(page).to have_content 'Welcome'
-  end 
+  end
 end
