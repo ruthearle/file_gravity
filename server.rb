@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'rest-client'
+require './lib/work_client'
 
 enable :sessions
 
@@ -10,6 +10,12 @@ get '/' do
 end
 
 post '/session' do
-  email, password = params['email', 'password']
-  RestClient.get 'http://my.workshare.com/'
+  @email, @password = params['email'], params['password']
+  response = WorkClient.new.login(@email, @password)
+  session[:response] = response['my_session_id']
+  redirect to '/files'
+end
+
+get '/files' do
+  erb :files
 end
