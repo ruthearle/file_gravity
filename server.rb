@@ -11,5 +11,5 @@ end
 
 post '/session' do
   email, password = params['email', 'password']
-RestClient.get 'http://my.workshare.com/'
+  RestClient.get 'http://my.workshare.com/'
 end
