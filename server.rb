@@ -10,8 +10,9 @@ get '/' do
 end
 
 post '/session' do
-  @email, @password = params['email'], params['password']
-  response = WorkClient.new.login(@email, @password)
+  email, password = params['email'], params['password']
+  client = WorkClient.new(email, password)
+  response = client.login
   session[:response] = response['my_session_id']
   redirect to '/files'
 end

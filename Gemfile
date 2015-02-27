@@ -1,10 +1,11 @@
 source "http://rubygems.org"
 
 gem 'sinatra'
-gem 'rest-client'
+gem 'httparty'
 
 group :development do
   gem 'rspec'
   gem 'capybara'
   gem 'launchy'
+  gem 'dotenv'
 end

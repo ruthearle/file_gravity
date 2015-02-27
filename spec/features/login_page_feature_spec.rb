@@ -8,8 +8,8 @@ feature 'Login' do
 
   scenario 'A person can fill in login details' do
     visit '/'
-    fill_in 'Email Address', with: "email@email.com"
-    fill_in 'Password', with: "password"
+    fill_in 'Email Address', with: "placement@makersacademy.com"
+    fill_in 'Password', with: "makersWelcome"
     click_on 'Login'
     expect(current_path).to eq '/files'
     expect(page).to have_content 'Welcome'
