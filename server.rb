@@ -13,7 +13,7 @@ post '/session' do
   email, password = params['email'], params['password']
   client = WorkClient.new(email, password)
   response = client.login
-  session[:response] = response['my_session_id']
+  session[:user_session] = response['device_auth_token']
   redirect to '/files'
 end
 
