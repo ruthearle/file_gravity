@@ -1,3 +1,8 @@
 /.DS_Store
 /.rspec
 /.envrc
+/lib/tags
+/spec/features/tags
+/spec/tags
+/test_files
+/tags

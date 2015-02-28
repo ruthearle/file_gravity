@@ -1,6 +1,7 @@
 require 'httparty'
 
 class WorkClient
+
   CONFIG = YAML::load_file('config.yml')
 
   include HTTParty
@@ -17,4 +18,7 @@ class WorkClient
     response = self.class.post(CONFIG['login_uri'], query: @user_session)
   end
 
+  def get_files
+
+  end
 end

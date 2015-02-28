@@ -2,14 +2,12 @@ require 'work_client'
 
 describe WorkClient do
 
-      email = 'placement@makersacademy.com'
-      password = 'makersWelcome'
-      client = WorkClient.new(email, password)
+  let(:email) { 'me@ruthearle.com' }
+    let(:password) { 'O6lnolvy8E' }
+    let(:client) { WorkClient.new(email, password) }
 
   describe "#initialize" do
     it "will not raise an error" do
-      email = 'placement@makersacademy.com'
-      password = 'makersWelcome'
       expect{client}.not_to raise_error
     end
   end
@@ -17,6 +15,14 @@ describe WorkClient do
   describe "#login" do
     it "saves a authorisation token when successful " do
       expect(client.login).to have_key 'device_auth_token'
+    end
+  end
+
+  describe "#get_files" do
+    it "provides a list of all files" do
+      binary = 'binary.bin'
+      client.login
+      expect(client.get_files).to eq binary
     end
   end
 end
