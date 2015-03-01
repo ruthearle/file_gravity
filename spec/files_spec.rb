@@ -37,7 +37,7 @@ describe 'Files' do
 
   describe "#total_weight" do
     it "calculates the basic weight of a file" do
-      weight = 
+      weight = 19.65
       expect(files.total_weight).to eq weight
     end
   end
