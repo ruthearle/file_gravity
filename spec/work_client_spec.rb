@@ -21,7 +21,7 @@ describe WorkClient do
   describe "#get_files" do
     it "provides a list of all files" do
       client.login
-      expect(client.get_files).to have_key 'pagination'
+      expect(client.get_files).to be_an_instance_of Array
     end
   end
 end

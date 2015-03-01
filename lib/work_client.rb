@@ -21,8 +21,9 @@ class WorkClient
   end
 
   def get_files
-    response = self.class.get(CONFIG['files_meta'], cookies: {device_credentials: @api_session})
-    response
+    files_list = self.class.get(CONFIG['files_uri'], cookies: {device_credentials: @api_session})
+    files_metadata = files_list.parsed_response
+    files_metadata['files']
   end
 
 end
