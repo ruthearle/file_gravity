@@ -10,10 +10,11 @@ describe 'Files' do
     end
   end
 
-  describe "#files" do
+  describe "#list" do
     it "lists files with their name and file extension" do
-      file = [{'name' => 'music', 'type' => 'mp3', 'size' => '1003'}]
-      expect(Files.new(file).list).to eq "music.mp3 0.001003"
+      file = [{'name' => 'music', 'extension' => 'mp3', 'size' => '0.001003'}]
+      expect(Files.new(file).list).to eq ["type" => "music.mp3", "size" => "0.001003"]
+
     end
   end
 end
