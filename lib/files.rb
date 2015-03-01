@@ -4,7 +4,7 @@ class Files
     @files = files_list
   end
 
-  def files
+  def list
     @files
   end
 end
