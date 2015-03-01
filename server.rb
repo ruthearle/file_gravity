@@ -1,5 +1,5 @@
 require 'sinatra'
-require './lib/work_client'
+require './lib/client'
 
 enable :sessions
 set :session_secret, 'super secret'
@@ -11,7 +11,7 @@ end
 
 post '/session' do
   email, password = params['email'], params['password']
-  client = WorkClient.new(email, password)
+  client = Client.new(email, password)
   client.login
   session[:email] = email
   session[:password] = password
@@ -19,7 +19,7 @@ post '/session' do
 end
 
 get '/files' do
-  client = WorkClient.new(session[:email], session[:password])
+  client = Client.new(session[:email], session[:password])
   client.login
   @files = client.get_files
   erb :files

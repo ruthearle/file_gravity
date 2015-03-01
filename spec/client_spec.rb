@@ -1,10 +1,10 @@
-require 'work_client'
+require 'client'
 
-describe WorkClient do
+describe Client do
 
     let(:email) { 'me@ruthearle.com' }
     let(:password) { 'O6lnolvy8E' }
-    let(:client) { WorkClient.new(email, password) }
+    let(:client) { Client.new(email, password) }
 
   describe "#initialize" do
     it "will not raise an error" do

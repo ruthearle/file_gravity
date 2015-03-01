@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Login' do
+feature '/login' do
   scenario 'A person can login' do
     visit '/'
     expect(page).to have_text 'File Gravity'
@@ -12,6 +12,6 @@ feature 'Login' do
     fill_in 'Password', with: "makersWelcome"
     click_on 'Login'
     expect(current_path).to eq '/files'
-    expect(page).to have_content 'Welcome Placementnull'
+    expect(page).to have_content 'Welcome'
   end
 end
