@@ -2,7 +2,7 @@ require 'work_client'
 
 describe WorkClient do
 
-  let(:email) { 'me@ruthearle.com' }
+    let(:email) { 'me@ruthearle.com' }
     let(:password) { 'O6lnolvy8E' }
     let(:client) { WorkClient.new(email, password) }
 
@@ -20,9 +20,8 @@ describe WorkClient do
 
   describe "#get_files" do
     it "provides a list of all files" do
-      binary = 'binary.bin'
       client.login
-      expect(client.get_files).to eq binary
+      expect(client.get_files).to have_key 'pagination'
     end
   end
 end

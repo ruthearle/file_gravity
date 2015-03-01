@@ -16,9 +16,13 @@ class WorkClient
 
   def login
     response = self.class.post(CONFIG['login_uri'], query: @user_session)
+    @api_session = response['device_auth_token']
+    response
   end
 
   def get_files
-
+    response = self.class.get(CONFIG['files_meta'], cookies: {device_credentials: @api_session})
+    response
   end
+
 end

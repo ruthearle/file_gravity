@@ -12,6 +12,6 @@ feature 'Login' do
     fill_in 'Password', with: "makersWelcome"
     click_on 'Login'
     expect(current_path).to eq '/files'
-    expect(page).to have_content 'Welcome'
+    expect(page).to have_content 'Welcome Placementnull'
   end
 end
