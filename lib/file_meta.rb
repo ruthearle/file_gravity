@@ -1,6 +1,7 @@
 class FileMeta
 
-  attr_accessor :metadata
+  attr_accessor :metadata, :category_weight
+
   CATEGORIES =  {
                  "document" => {"extension" => ['doc', 'docx', 'pages', 'odt', 'rtf'], "gravity" => 1.1},
                  "song"     => {"extension" => ['mp3', 'wma', 'wav', 'm4a'], "gravity" => 1.2 },
@@ -22,20 +23,24 @@ class FileMeta
   end
 
   def basic_weight(category)
-    basic_weight = 0
-    category == 'text' ? files.each { |file| basic_weight = add(file['size'], category) if extension(category).include? file['extension'] } :
+    weight = 0
+    category == 'text' ? files.each { |file| weight = add(file['size'], category) if extension(category).include? file['extension'] } :
 
-    files.each { |file| basic_weight = multiply(file['size'], category) if extension(category).include? file['extension'] }
+    files.each { |file| weight = multiply(file['size'], category) if extension(category).include? file['extension'] }
 
-    basic_weight.round(2)
+    weight.round(2)
   end
+
+  #def add_gravity(category)
+
+  #end
 
   def multiply(size, category)
     ((size * gravity(category)) / 1000000)
   end
 
   def add(size, category)
-    ((size / 1000000) + gravity(category))
+    ((size.to_f / 1000000) + gravity(category))
   end
 
   def extension(category)
@@ -46,8 +51,8 @@ class FileMeta
     CATEGORIES[category]['gravity']
   end
 
-  def file_type(category)
-   
-  end
+  #def file_type(category)
+
+  #end
 
 end

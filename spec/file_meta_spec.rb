@@ -24,7 +24,7 @@ describe 'FileMeta' do
                             "name"=>"text",
                             "extension"=>"txt",
                             "version"=>1,
-                            "size"=>1000000,
+                            "size"=>100000,
                             "created_at"=>"2015-02-26T09:57:26Z",
                             "updated_at"=>"2015-02-26T09:57:28Z",
                             "creator"=>
@@ -67,7 +67,7 @@ describe 'FileMeta' do
     describe "add" do
       it "calculates the basic weight for text category" do
         category = 'text'
-        expect(files.basic_weight(category)).to eq 101.0
+        expect(files.basic_weight(category)).to eq 100.1
       end
     end
   end
