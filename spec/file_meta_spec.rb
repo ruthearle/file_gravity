@@ -58,9 +58,11 @@ describe 'FileMeta' do
   end
 
   describe "#basic_weight" do
-    it "calculates the basic weight for each category" do
-      category = 'song'
-      expect(files.basic_weight(category)).to eq 19.65
+    describe "multiply" do
+      it "calculates the basic weight for each category" do
+        category = 'song'
+        expect(files.basic_weight(category)).to eq 19.65
+      end
     end
   end
 end

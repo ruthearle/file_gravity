@@ -21,9 +21,10 @@ class FileMeta
     files.select {|file| CATEGORIES[category]['extension'].include? file['extension']}.count
   end
 
+  def basic_weight(category)
+    basic_weight = 0
+    files.each { |file| basic_weight = ((file['size'] * CATEGORIES[category]['gravity']) / 1000000) if CATEGORIES[category]['extension'].include? file['extension'] }
+    basic_weight.round(2)
+  end
 
-  #def total_weight(category)
-    #basic_file_weight = 0
-    #files.each { |file| file['extension'].include?(FILE_TYPES['extension']) basic_file_weight += file['size'] * FILE_TYPES[]}
-  #end
 end
