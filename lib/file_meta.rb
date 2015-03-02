@@ -18,23 +18,6 @@ class FileMeta
     metadata
   end
 
-  def count(category)
-    files.select {|file| extension(category).include? file['extension']}.count
-  end
-
-  def basic_weight(category)
-    weight = 0
-    category == 'text' ? files.each { |file| weight = add(file['size'], category) if extension(category).include? file['extension'] } :
-
-    files.each { |file| weight = multiply(file['size'], category) if extension(category).include? file['extension'] }
-
-    weight.round(2)
-  end
-
-  #def add_gravity(category)
-
-  #end
-
   def multiply(size, category)
     ((size * gravity(category)) / 1000000)
   end
@@ -51,8 +34,22 @@ class FileMeta
     CATEGORIES[category]['gravity']
   end
 
-  #def file_type(category)
+  def include_file_type(category, file)
+    extension(category).include? file['extension']
+  end
 
-  #end
+  public
 
+  def count(category)
+    files.select {|file| extension(category).include? file['extension']}.count
+  end
+
+  def basic_weight(category)
+    weight = 0
+    category == 'text' ? files.each { |file| weight = add(file['size'], category) if include_file_type(category, file)} :
+
+    files.each { |file| weight = multiply(file['size'], category) if include_file_type(category, file) }
+
+    weight.round(2)
+  end
 end
