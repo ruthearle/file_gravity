@@ -83,7 +83,7 @@ describe 'FileMeta' do
 
   describe "#gravity_displacement" do
     it "calculates the difference bewteen basic weight and ideal weight" do
-      ideal_weight = 16.48
+      ideal_weight = 103.27
       expect(files.gravity_displacement).to eq ideal_weight
     end
   end

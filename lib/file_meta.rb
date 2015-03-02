@@ -13,6 +13,7 @@ class FileMeta
 
   def initialize(list)
     self.metadata = list
+
   end
 
   private
@@ -41,6 +42,12 @@ class FileMeta
     CATEGORIES.map { |k,v| k }
   end
 
+  def total_ideal_weight
+    ideal_weight = 0
+    metadata.each { |file| ideal_weight += file['size'] }
+    (ideal_weight.to_f / 1000000).round(2)
+  end
+
   public
 
   def files
@@ -61,8 +68,12 @@ class FileMeta
   end
 
   def total_basic_weight
-    total_basic_weight = 0
-    all_categories.each { |category| total_basic_weight += basic_weight(category) }
-    total_basic_weight
+    total_weight = 0
+    all_categories.each { |category| total_weight += basic_weight(category) }
+    total_weight
+  end
+
+  def gravity_displacement
+    total_basic_weight - total_ideal_weight
   end
 end
