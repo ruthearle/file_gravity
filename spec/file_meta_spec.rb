@@ -76,8 +76,15 @@ describe 'FileMeta' do
 
   describe "#total_weight_basic" do
     it "calculates the basic weight of files in all categories" do
-      all_categories = ['song', 'video', 'document', 'text', 'other']
-      expect(files.total_basic_weight(all_categories)).to eq 119.75
+      #all_categories = ['song', 'video', 'document', 'text', 'other']
+      expect(files.total_basic_weight).to eq 119.75
+    end
+  end
+
+  describe "#gravity_displacement" do
+    it "calculates the difference bewteen basic weight and ideal weight" do
+      ideal_weight = 16.48
+      expect(files.gravity_displacement).to eq ideal_weight
     end
   end
 end

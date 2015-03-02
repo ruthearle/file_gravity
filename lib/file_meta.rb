@@ -60,7 +60,7 @@ class FileMeta
     weight.round(2)
   end
 
-  def total_basic_weight(all_categories)
+  def total_basic_weight
     total_basic_weight = 0
     all_categories.each { |category| total_basic_weight += basic_weight(category) }
     total_basic_weight
