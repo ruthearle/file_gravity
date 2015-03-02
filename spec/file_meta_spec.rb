@@ -21,10 +21,10 @@ describe 'FileMeta' do
                         "folder_id"=>1209741
                         },
                         {"id"=>14913212,
-                            "name"=>"binary",
-                            "extension"=>"bin",
+                            "name"=>"text",
+                            "extension"=>"txt",
                             "version"=>1,
-                            "size"=>1003,
+                            "size"=>555003,
                             "created_at"=>"2015-02-26T09:57:26Z",
                             "updated_at"=>"2015-02-26T09:57:28Z",
                             "creator"=>
@@ -59,9 +59,15 @@ describe 'FileMeta' do
 
   describe "#basic_weight" do
     describe "multiply" do
-      it "calculates the basic weight for each category" do
+      it "calculates the basic weight for categories that are multiplied" do
         category = 'song'
         expect(files.basic_weight(category)).to eq 19.65
+      end
+    end
+    describe "add" do
+      it "calculates the basic weight for text category" do
+        category = 'text'
+        expect(files.basic_weight(category)).to eq 0.66
       end
     end
   end
