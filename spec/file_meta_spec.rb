@@ -87,4 +87,10 @@ describe 'FileMeta' do
       expect(files.gravity_displacement).to eq ideal_weight
     end
   end
+
+  describe "#all_categories" do
+    it "a list of all category types" do
+      expect(files.all_categories).to eq ["document", "song", "video", "text", "other"]
+    end
+  end
 end
