@@ -74,10 +74,10 @@ describe 'FileMeta' do
     end
   end
 
-  describe "#total_weight" do
+  describe "#total_weight_basic" do
     it "calculates the basic weight of files in all categories" do
       all_categories = ['song', 'video', 'document', 'text', 'other']
-      expect(files.total_weight(all_categories)).to eq 119.75
+      expect(files.total_basic_weight(all_categories)).to eq 119.75
     end
   end
 end
