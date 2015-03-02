@@ -59,8 +59,9 @@ describe 'FileMeta' do
 
   describe "#count" do
     it "calculates the number of files within a category" do
-      category = 'music'
+      category = 'song'
       expect(files.count(category)).to eq 1
     end
+
   end
 end

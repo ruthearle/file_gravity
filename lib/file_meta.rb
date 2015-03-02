@@ -18,7 +18,7 @@ class FileMeta
   end
 
   def count(category)
-    1
+    files.select {|file| CATEGORIES[category]['extension'].include? file['extension']}.count
   end
 
 
