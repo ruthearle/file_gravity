@@ -10,13 +10,12 @@ class FileMeta
                  "other"    => {"extension" => [], "gravity" => 1.0}
                 }
 
+
   def initialize(list)
     self.metadata = list
   end
 
-  def files
-    metadata
-  end
+  private
 
   def multiply(size, category)
     ((size * gravity(category)) / 1000000)
@@ -38,7 +37,15 @@ class FileMeta
     extension(category).include? file['extension']
   end
 
+  def all_categories
+    CATEGORIES.map { |k,v| k }
+  end
+
   public
+
+  def files
+    metadata
+  end
 
   def count(category)
     files.select {|file| extension(category).include? file['extension']}.count
@@ -51,5 +58,11 @@ class FileMeta
     files.each { |file| weight = multiply(file['size'], category) if include_file_type(category, file) }
 
     weight.round(2)
+  end
+
+  def total_weight(all_categories)
+    total_basic_weight = 0
+    all_categories.each { |category| total_basic_weight += basic_weight(category) }
+    total_basic_weight
   end
 end
