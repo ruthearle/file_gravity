@@ -36,6 +36,8 @@ describe 'FileMeta' do
                             "first_page_url"=>"https://my.workshare.com/images/icons/medium/unknown.png",
                             "folder_id"=>1168672}
                       ]}
+  let(:song) { 'song' }
+
   let(:files) { FileMeta.new(files_list) }
 
   describe "#initialize" do
@@ -69,6 +71,13 @@ describe 'FileMeta' do
         category = 'text'
         expect(files.basic_weight(category)).to eq 100.1
       end
+    end
+  end
+
+  describe "#total_weight" do
+    it "calculates the basic weight of files in all categories" do
+      all_categories = ['song', 'video', 'document', 'text', 'other']
+      expect(files.total_weight(all_categories)).to eq 119.75
     end
   end
 end

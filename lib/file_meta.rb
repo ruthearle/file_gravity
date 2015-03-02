@@ -1,6 +1,6 @@
 class FileMeta
 
-  attr_accessor :metadata, :category_weight
+  attr_accessor :metadata
 
   CATEGORIES =  {
                  "document" => {"extension" => ['doc', 'docx', 'pages', 'odt', 'rtf'], "gravity" => 1.1},
