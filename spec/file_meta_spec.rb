@@ -47,6 +47,7 @@ describe 'FileMeta' do
   describe "#files" do
     it "lists all files" do
       expect(FileMeta.new(files_list).files).to eq files_list
+
     end
   end
 

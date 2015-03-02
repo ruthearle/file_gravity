@@ -12,12 +12,8 @@ class FileMeta
     self.metadata = list
   end
 
-  def list
-    formatted_files_list = []
-    metadata.each { |file| formatted_files_list << {'name' => "#{file['name']}.#{file['extension']}", 'size' => "#{file['size']}"}}
-    formatted_files_list
-    #list = formatted_files_list.map { |file|  p "#{file['type']} #{(file['size'].to_f / 1000000.0).round(10)}"}
-    #list
+  def files
+    metadata
   end
 
   def total_weight
