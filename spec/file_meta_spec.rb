@@ -47,14 +47,20 @@ describe 'FileMeta' do
   describe "#files" do
     it "lists all files" do
       expect(FileMeta.new(files_list).files).to eq files_list
-
     end
   end
 
   describe "#total_weight" do
-    it "calculates the basic weight of a file" do
+    xit "calculates the basic weight of a file" do
       weight = 19.65
       expect(files.total_weight).to eq weight
+    end
+  end
+
+  describe "#count" do
+    it "calculates the number of files within a category" do
+      category = 'music'
+      expect(files.count(category)).to eq 1
     end
   end
 end

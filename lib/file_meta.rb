@@ -16,7 +16,7 @@ class FileMeta
     metadata
   end
 
-  def total_weight
+  def total_weight(category)
     #basic_file_weight = 0
     #files.each { |file| file['extension'].include?(FILE_TYPES['extension']) basic_file_weight += file['size'] * FILE_TYPES[]}
 
