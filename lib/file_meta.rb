@@ -38,10 +38,6 @@ class FileMeta
     extension(category).include? file['extension']
   end
 
-  def all_categories
-    CATEGORIES.map { |k,v| k }
-  end
-
   def total_ideal_weight
     ideal_weight = 0
     metadata.each { |file| ideal_weight += file['size'] }
@@ -65,6 +61,10 @@ class FileMeta
     files.each { |file| weight = multiply(file['size'], category) if include_file_type(category, file) }
 
     weight.round(2)
+  end
+
+  def all_categories
+    CATEGORIES.map { |k,v| k }
   end
 
   def total_basic_weight
