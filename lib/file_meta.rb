@@ -40,7 +40,7 @@ class FileMeta
 
   def total_ideal_weight
     ideal_weight = 0
-    metadata.each { |file| ideal_weight += file['size'] }
+    files.each { |file| ideal_weight += file['size'] }
     (ideal_weight.to_f / 1000000).round(2)
   end
 
