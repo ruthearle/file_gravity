@@ -4,10 +4,10 @@ class Client
 
   attr_accessor :user_session, :api_session
 
-  API = YAML::load_file('client.yml')
+  API = YAML::load_file('api.yml')
 
   include HTTParty
-  base_uri API['base_uri']
+  base_uri API['base_uri'] || API = ENV['BASE_URI']
 
   def initialize(email, password)
     @user_session = {

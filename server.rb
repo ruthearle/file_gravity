@@ -1,5 +1,6 @@
 require 'sinatra'
-require './lib/client'
+require './lib/client.rb'
+require './lib/file_meta.rb'
 
 enable :sessions
 set :session_secret, 'super secret'
@@ -22,5 +23,6 @@ get '/files' do
   client = Client.new(session[:email], session[:password])
   client.login
   @files = client.get_files
+  @data = FileMeta.new(@files)
   erb :files
 end

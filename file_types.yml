@@ -1,0 +1,15 @@
+document:
+  extension: ['doc', 'docx', 'pages', 'odt', 'rtf']
+  multiply: 1.1
+song:
+  extension: ['mp3', 'wma', 'wav', 'm4a']
+  multiply: 1.2
+video:
+  extension: ['avi', 'mp4', 'mpg', 'mov', 'wmv', 'flv']
+  multiply: 1.4
+text:
+  extension: ['txt']
+  add: 100
+other:
+  extension: []
+  multipy: 1.0

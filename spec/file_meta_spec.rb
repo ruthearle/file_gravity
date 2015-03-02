@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'files'
+require 'file_meta'
 
-describe 'Files' do
+describe 'FileMeta' do
 
   let(:files_list)  { [{"id"=>14913224,
                         "name"=>"music",
@@ -20,7 +20,7 @@ describe 'Files' do
                         "first_page_url"=>"https://my.workshare.com/images/icons/medium/mp3.png",
                         "folder_id"=>1209741}]
                     }
-  let(:files) { Files.new(files_list) }
+  let(:files) { FileMeta.new(files_list) }
 
   describe "#initialize" do
     it "will not raise an error when initialised" do
@@ -31,7 +31,7 @@ describe 'Files' do
   describe "#list" do
     it "lists files with their name and file extension" do
       #file = [{'name' => 'music', 'extension' => 'mp3', 'size' => '0.001003'}]
-      expect(Files.new(files_list).list).to eq ["type" => "music.mp3", "size"=>"16377897"]
+      expect(FileMeta.new(files_list).list).to eq ["type" => "music.mp3", "size"=>"16377897"]
     end
   end
 
