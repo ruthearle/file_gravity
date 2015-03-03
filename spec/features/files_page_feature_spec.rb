@@ -19,7 +19,18 @@ feature "/files" do
     click_on 'Login'
     expect(current_path).to eq '/files'
     expect(page).to have_content 'Video'
-    expect(page).to have_content '2'
+    expect(page).to have_content '1'
   end
+
+  scenario "display basic weight of files per category" do
+    visit '/'
+    fill_in 'Email Address', with: "me@ruthearle.com"
+    fill_in 'Password', with: "makersWelcome"
+    click_on 'Login'
+    expect(current_path).to eq '/files'
+    expect(page).to have_content 'Video 1 3.12'
+  end
+
+
 
 end
