@@ -5,11 +5,13 @@ include LoginHelper
 
 feature '/homepage' do
 
+  before(:each) do
+    login
+  end
+
   context 'A person can login' do
     scenario 'correct credentials' do
-      login("placement@makersacademy.com", "makersWelcome")
-      expect(current_path).to eq '/files'
-      expect(page).to have_content 'Welcome, placement@makersacademy'
+      expect(page).to have_content 'Welcome, me@ruthearle.com'
     end
 
     xscenario 'incorrect credentials' do
@@ -20,8 +22,6 @@ feature '/homepage' do
   end
 
   scenario 'A person can logout' do
-    login("placement@makersacademy.com", "makersWelcome")
-    expect(current_path).to eq '/files'
     click_on 'Logout'
     expect(current_path).to eq '/'
     expect(page).to have_content "Thank you for using File Gravity, goodbye."
