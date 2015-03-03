@@ -3,7 +3,7 @@ require_relative '../helpers/login_helper'
 
 include LoginHelper
 
-feature '/login' do
+feature '/homepage' do
 
   context 'A person can login' do
     scenario 'correct credentials' do
