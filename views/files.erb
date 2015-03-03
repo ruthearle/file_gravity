@@ -14,10 +14,15 @@
   </thead>
   <% @data.all_categories.each do |category| %>
       <tr>
-        <td><%= category.capitalize %></td>
-    <td>
-      <%= @data.count(category) %>
-    </td>
+        <td>
+          <%= category.capitalize %>
+        </td>
+        <td>
+          <%= @data.count(category) %>
+        </td>
+        <td>
+          <%= @data.basic_weight(category) %>
+        </td>
       </tr>
   <% end %>
 
