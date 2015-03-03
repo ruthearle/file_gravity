@@ -2,6 +2,7 @@ source "http://rubygems.org"
 
 gem 'sinatra'
 gem 'httparty'
+gem 'sinatra-flash'
 
 group :development do
   gem 'rspec'

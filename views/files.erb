@@ -1,6 +1,39 @@
-<h2>Welcome</h2>
+<h2>Welcome, <%= session[:email]%></h2>
+<form id="logout" method="POST" action="/session">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" class="button" value="Logout">
+</form>
 
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Number of files</th>
+      <th>Basic Weight (MB)</th>
+    </tr>
+  </thead>
+  <% @data.all_categories.each do |category| %>
+      <tr>
+        <td>
+          <%= category.capitalize %>
+        </td>
+        <td>
+          <%= @data.count(category) %>
+        </td>
+        <td>
+          <%= @data.basic_weight(category) %>
+        </td>
+      </tr>
+  <% end %>
+<table>
+  <tr>
+    <th>Total basic weight (MB): </th>
+    <td><%= @data.total_basic_weight %></td>
+  </tr>
+  <tr>
+  <th>Gravity Displacement (MB): </th>
+  <td><%= @data.gravity_displacement %></td>
+  </tr>
+</table>
 
-<% @data.metadata.each do |file| %>
-  <%= file['name']%>
-<% end %>
+</table>

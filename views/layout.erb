@@ -11,6 +11,11 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   </head>
   <body>
+  <% if flash[:next] %>
+    <span class="flash">
+      <%= flash[:next]%>
+    </span>
+  <% end %>
     <%= yield %>
   </body>
 </html>
