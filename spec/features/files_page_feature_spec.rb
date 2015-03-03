@@ -2,13 +2,13 @@ require 'spec_helper'
 
 feature "/files" do
 
-  scenario "displaying a list of" do
+  scenario "displaying file category names of" do
 
     visit '/'
-    fill_in 'Email Address', with: "me@ruthearle.com"
-    fill_in 'Password', with: "O6lnolvy8E"
+    fill_in 'Email Address', with: "placement@makersacademy.com"
+    fill_in 'Password', with: "makersWelcome"
     click_on 'Login'
     expect(current_path).to eq '/files'
-    expect(page).to have_content 'binary.bin'
+    expect(page).to have_content 'Video'
   end
 end

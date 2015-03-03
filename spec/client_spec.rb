@@ -3,7 +3,7 @@ require 'client'
 describe Client do
 
     let(:email) { 'me@ruthearle.com' }
-    let(:password) { 'O6lnolvy8E' }
+    let(:password) { 'techtest' }
     let(:client) { Client.new(email, password) }
 
   describe "#initialize" do

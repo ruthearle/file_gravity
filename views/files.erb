@@ -1,6 +1,12 @@
 <h2>Welcome</h2>
 
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Basic Weight</th>
+  </tr>
+  <% @data.all_categories.each do |category| %>
+    <tr><%= category.capitalize %>
+  <% end %>
 
-<% @data.metadata.each do |file| %>
-  <%= file['name']%>
-<% end %>
+</table>
