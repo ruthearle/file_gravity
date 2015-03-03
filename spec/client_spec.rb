@@ -24,4 +24,11 @@ describe Client do
       expect(client.get_files).to be_an_instance_of Array
     end
   end
+
+  describe "#logout" do
+    it "deletes the cookie from the session" do
+      client.logout
+      expect(client.api_session).to eq ''
+    end
+  end
 end

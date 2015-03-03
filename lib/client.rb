@@ -10,7 +10,7 @@ class Client
   base_uri API['base_uri'] || API = ENV['BASE_URI']
 
   def initialize(email, password)
-    @user_session = {
+    self.user_session = {
       "user_session" => {"email"=> email, "password" => password},
       "device" => {"app_uid" => API['api_key']}
     }
@@ -18,7 +18,7 @@ class Client
 
   def login
     response = self.class.post(API['login_uri'], query: user_session)
-    @api_session = response['device_auth_token']
+    self.api_session = response['device_auth_token']
     response
   end
 

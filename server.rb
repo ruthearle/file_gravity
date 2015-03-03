@@ -20,9 +20,13 @@ post '/session' do
 end
 
 get '/files' do
-  client = Client.new(session[:email], session[:password])
-  client.login
-  @files = client.get_files
+  @client = Client.new(session[:email], session[:password])
+  @client.login
+  @files = @client.get_files
   @data = FileMeta.new(@files)
   erb :files
+end
+
+delete '/session' do
+
 end

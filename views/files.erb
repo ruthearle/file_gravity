@@ -1,4 +1,9 @@
-<h2>Welcome</h2>
+<h2>Welcome, <%= session[:email]%></h2>
+<form id="logout" method="post" action="/session">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" value="<%=@client%>">
+  <input type="submit" class="button" value="Logout">
+</form>>
 
 <table>
   <tr>
