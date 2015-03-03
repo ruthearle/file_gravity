@@ -22,7 +22,7 @@ feature "/files" do
   end
 
   scenario "shows the total weight for all files" do
-    expect(page).to have_content 'Total basic weight (megabytes): 122.79'
+    expect(page).to have_content 'Total basic weight (Mb): 122.79'
   end
 
 
