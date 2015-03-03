@@ -14,13 +14,13 @@ class FileMeta
   end
 
   def count(category)
-    list.select {|file| extension(category).include? file['extension']}.count
+    list.select {|file| include_file_type(category, file)}.count
   end
 
   def basic_weight(category)
     weight = 0
     # could use reduce but have to figure out how to. Will probably have to refactor a few methods
-    #category == 'text' ? add_basic(category) : multiply_basic(category)
+    #list.map { |file| weight = add(file['size'], category)
     category == 'text' ? list.map { |file| weight = add(file['size'], category) if include_file_type(category, file) } :
     list.map { |file| weight = multiply(file['size'], category) if include_file_type(category, file) }
 
@@ -32,9 +32,7 @@ class FileMeta
   end
 
   def total_basic_weight
-    total_weight = 0
-    all_categories.each { |category| total_weight += basic_weight(category) }
-    total_weight.round(2)
+    (all_categories.map { |category| basic_weight(category) }.reduce(:+)).round(2)
   end
 
   def gravity_displacement
@@ -44,7 +42,7 @@ class FileMeta
   private
 
   #def add_basic(category)
-    #list.map { |file| add(file['size'], category) }.reduce(:+)
+    #add(file['size'], category).reduce(0, &:+)
   #end
 
   def multiply(size, category)
