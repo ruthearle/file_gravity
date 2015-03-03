@@ -1,4 +1,8 @@
+#require_relative 'helper'
+
 class FileMeta
+
+  #include Helper
 
   attr_accessor :list, :weight
 
@@ -39,12 +43,16 @@ class FileMeta
 
   private
 
+  #def add_basic(category)
+    #list.map { |file| add(file['size'], category) }.reduce(:+)
+  #end
+
   def multiply(size, category)
     (size * gravity(category)) / MB
   end
 
   def add(size, category)
-    calculate(size.to_f) + gravity(category)
+    calculate(size) + gravity(category)
   end
 
   def extension(category)
@@ -60,13 +68,11 @@ class FileMeta
   end
 
   def total_ideal_weight
-    ideal_weight = 0
-    list.each { |file| ideal_weight += file['size'] }
-    calculate(ideal_weight.to_f).round(2)
+    calculate(list.map { |file| file['size'] }.reduce(:+)).round(2)
   end
 
   def calculate(number)
-    number / MB
+    number.to_f / MB
   end
 
 end
