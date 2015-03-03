@@ -1,4 +1,5 @@
-id: 14913224
+music:
+  id: 14913224
   name: "music"
   extension: "mp3"
   version: 1
@@ -14,7 +15,8 @@ id: 14913224
   first_page_url: https://my.workshare.com/images/icons/medium/mp3.png
   folder_id: 1209741
 
-id: 14913212
+text:
+  id: 14913212
   name: text
   extension: txt
   version: 1
