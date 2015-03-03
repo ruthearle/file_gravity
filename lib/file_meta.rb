@@ -1,6 +1,6 @@
 class FileMeta
 
-  attr_accessor :metadata, :weight
+  attr_accessor :files, :weight
 
   CATEGORIES =  {
                  "document" => {"extension" => ['doc', 'docx', 'pages', 'odt', 'rtf'], "gravity" => 1.1},
@@ -11,14 +11,8 @@ class FileMeta
                 }
 
 
-  def initialize(list)
-    self.metadata = list
-  end
-
-  public
-
-  def files
-    metadata
+  def initialize(files)
+    @files = files
   end
 
   def count(category)
