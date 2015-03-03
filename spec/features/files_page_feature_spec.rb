@@ -22,7 +22,12 @@ feature "/files" do
   end
 
   scenario "shows the total weight for all files" do
-    expect(page).to have_content 'Total basic weight (Mb): 122.79'
+    expect(page).to have_content 'Total basic weight (MB): 122.79'
+    login("placement@makersacademy.com", "makersWelcome")
+  end
+
+  scenario "shows the gravity displacement for all files" do
+    expect(page).to have_content 'Gravity Displacement (MB): 104.16'
   end
 
 

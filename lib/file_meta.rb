@@ -42,11 +42,11 @@ class FileMeta
   def total_basic_weight
     total_weight = 0
     all_categories.each { |category| total_weight += basic_weight(category) }
-    total_weight
+    total_weight.round(2)
   end
 
   def gravity_displacement
-    total_basic_weight - total_ideal_weight
+    (total_basic_weight - total_ideal_weight).round(2)
   end
 
   private
