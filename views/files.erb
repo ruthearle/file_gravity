@@ -2,15 +2,24 @@
 <form id="logout" method="POST" action="/session">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" class="button" value="Logout">
-</form>>
+</form>
 
 <table>
-  <tr>
-    <th>Category</th>
-    <th>Basic Weight</th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Number of files</th>
+      <th>Basic Weight</th>
+    </tr>
+  </thead>
   <% @data.all_categories.each do |category| %>
-    <tr><%= category.capitalize %>
+      <tr>
+        <td><%= category.capitalize %></td>
+    <td>
+      <%= @data.count(category) %>
+    </td>
+      </tr>
   <% end %>
+
 
 </table>

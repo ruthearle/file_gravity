@@ -14,10 +14,11 @@ feature "/files" do
 
   scenario "display number of files per category" do
     visit '/'
-    fill_in 'Email Address', with: "placement@makersacademy.com"
+    fill_in 'Email Address', with: "me@ruthearle.com"
     fill_in 'Password', with: "makersWelcome"
     click_on 'Login'
     expect(current_path).to eq '/files'
+    expect(page).to have_content 'Video'
     expect(page).to have_content '2'
   end
 
