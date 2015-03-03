@@ -1,0 +1,6 @@
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+Client	/Users/CarpeDiem/Development/file_gravity/app/lib/client.rb	/^class Client$/;"	c	language:Ruby
+get_files	/Users/CarpeDiem/Development/file_gravity/app/lib/client.rb	/^  def get_files$/;"	f	language:Ruby	class:Client
+initialize	/Users/CarpeDiem/Development/file_gravity/app/lib/client.rb	/^  def initialize(email, password)$/;"	f	language:Ruby	class:Client
+login	/Users/CarpeDiem/Development/file_gravity/app/lib/client.rb	/^  def login$/;"	f	language:Ruby	class:Client
+logout	/Users/CarpeDiem/Development/file_gravity/app/lib/client.rb	/^  def logout$/;"	f	language:Ruby	class:Client

@@ -1,10 +1,13 @@
 require 'sinatra'
 require 'sinatra/flash'
-require './lib/client.rb'
-require './lib/file_meta.rb'
+require_relative './app/lib/client.rb'
+require_relative './app/lib/file_meta.rb'
+
+#$: << File.expand_path('../', __FILE__)
 
 enable :sessions, :method_override
 set :session_secret, 'super secret'
+set :views, 'app/views'
 
 get '/' do
   erb :index

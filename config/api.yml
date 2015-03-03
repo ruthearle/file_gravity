@@ -1,0 +1,5 @@
+api_key: 'cd953183-c36a'
+base_uri: 'https://my.workshare.com/api/open-v1.0'
+login_uri: '/user_sessions.json'
+logout_uri: '/logout.json'
+files_uri: '/files.json'
