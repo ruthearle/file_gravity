@@ -30,6 +30,6 @@ feature '/login' do
     expect(current_path).to eq '/files'
     click_on 'Logout'
     expect(current_path).to eq '/'
-    expect(page).to have_content 'Thank you for using File Gravity. Goodbye.'
+    expect(page).to have_content "Thank you for using File Gravity, goodbye."
   end
 end

@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/flash'
 require './lib/client.rb'
 require './lib/file_meta.rb'
 
@@ -20,13 +21,19 @@ post '/session' do
 end
 
 get '/files' do
-  @client = Client.new(session[:email], session[:password])
-  @client.login
-  @files = @client.get_files
+  client = Client.new(session[:email], session[:password])
+  client.login
+  @files = client.get_files
   @data = FileMeta.new(@files)
   erb :files
 end
 
 delete '/session' do
-
+  flash[:next] = "Thank you for using File Gravity, goodbye."
+  client = Client.new(session[:email], session[:password])
+  client.login
+  client.logout
+  session[:email] = nil
+  session[:password] = nil
+  redirect to '/'
 end

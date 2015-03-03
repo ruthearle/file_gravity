@@ -28,7 +28,7 @@ describe Client do
   describe "#logout" do
     it "deletes the cookie from the session" do
       client.logout
-      expect(client.api_session).to eq ''
+      expect(client.api_session).to eq nil
     end
   end
 end

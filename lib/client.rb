@@ -28,4 +28,11 @@ class Client
     files_metadata['files']
   end
 
+  def logout
+    self.class.get(API['logout_uri'])
+    #api_session = ''
+    #response['devise_credentials'] = api_session
+    #api_session
+  end
+
 end
