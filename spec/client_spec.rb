@@ -2,9 +2,9 @@ require './lib/client'
 
 describe Client do
 
-    let(:email)    { 'placement@makersacademy.com' }
-    let(:password) { 'makersWelcome' }
-    subject(:client)   { Client.new(email, password) }
+    let(:email)       { 'placement@makersacademy.com' }
+    let(:password)    { 'makersWelcome' }
+    subject(:client)  { Client.new(email, password) }
 
   describe "#initialize" do
     it "will not raise an error" do

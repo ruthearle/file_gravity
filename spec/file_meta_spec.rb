@@ -1,8 +1,8 @@
 require 'spec_helper'
 require './lib/file_meta'
 
+  #LIST = YAML::load_file('./spec/fixtures/list.yml')
 describe 'FileMeta' do
-
   let(:list)  { [{
                   "id"=>14913224,
                   "name"=>"music",
@@ -41,9 +41,9 @@ describe 'FileMeta' do
                   "first_page_url"=>"https://my.workshare.com/images/icons/medium/unknown.png",
                   "folder_id"=>1168672}
                  ]}
-  let(:song) { 'song' }
 
-  let(:files) { FileMeta.new(list) }
+  subject(:files) { FileMeta.new(list) }
+  let(:song) { "song" }
 
   describe "#initialize" do
     it "will not raise an error when initialised" do
@@ -53,22 +53,20 @@ describe 'FileMeta' do
 
   describe "#files" do
     it "lists all files" do
-      expect(FileMeta.new(list).files).to eq list
+      expect(files.list).to eq list
     end
   end
 
   describe "#count" do
     it "calculates the number of files within a category" do
-      category = 'song'
-      expect(files.count(category)).to eq 1
+      expect(files.count(song)).to eq 1
     end
   end
 
   describe "#basic_weight" do
     describe "multiply" do
       it "calculates the basic weight for categories that are multiplied" do
-        category = 'song'
-        expect(files.basic_weight(category)).to eq 19.65
+        expect(files.basic_weight(song)).to eq 19.65
       end
     end
     describe "add" do
