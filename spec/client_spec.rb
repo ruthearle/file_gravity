@@ -2,8 +2,8 @@ require 'client'
 
 describe Client do
 
-    let(:email) { 'me@ruthearle.com' }
-    let(:password) { 'techtest' }
+    let(:email) { 'placement@makersacademy.com' }
+    let(:password) { 'makersWelcome' }
     let(:client) { Client.new(email, password) }
 
   describe "#initialize" do
@@ -13,7 +13,7 @@ describe Client do
   end
 
   describe "#login" do
-    it "saves a authorisation token when successful " do
+    it "saves an authentication token when successful " do
       expect(client.login).to have_key 'device_auth_token'
     end
   end
@@ -26,7 +26,7 @@ describe Client do
   end
 
   describe "#logout" do
-    it "deletes the cookie from the session" do
+    it "deletes the authentication token from the session" do
       client.logout
       expect(client.api_session).to eq nil
     end

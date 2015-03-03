@@ -1,5 +1,5 @@
 <h2>Welcome, <%= session[:email]%></h2>
-<form id="logout" method="post" action="/session">
+<form id="logout" method="POST" action="/session">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" class="button" value="Logout">
 </form>>

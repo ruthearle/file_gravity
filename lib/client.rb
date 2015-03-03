@@ -7,10 +7,11 @@ class Client
   API = YAML::load_file('api.yml')
 
   include HTTParty
-  base_uri API['base_uri'] || API = ENV['BASE_URI']
+
+  base_uri API['base_uri']
 
   def initialize(email, password)
-    self.user_session = {
+    @user_session = {
       "user_session" => {"email"=> email, "password" => password},
       "device" => {"app_uid" => API['api_key']}
     }
@@ -18,7 +19,7 @@ class Client
 
   def login
     response = self.class.post(API['login_uri'], query: user_session)
-    self.api_session = response['device_auth_token']
+    @api_session = response['device_auth_token']
     response
   end
 
