@@ -17,15 +17,9 @@ post '/session' do
   email, password = params[:email], params[:password]
   client = Client.new(email, password)
   client.login
-  if response.code == 500
-    flash[:now] = "Invalid email or password. Pleaase try again."
-    redirect to '/'
-  else
   session['email'] = email
   session['password'] = password
   redirect to '/files'
-
-  end
 end
 
 
