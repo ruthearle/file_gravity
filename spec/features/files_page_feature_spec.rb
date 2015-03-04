@@ -5,6 +5,12 @@ include LoginHelper
 
 feature "/files" do
 
+  scenario "cannot be accessed without a person being logged in" do
+    visit "/files"
+    expect(current_path).to eq '/files'
+    expect(page).to eq "Restricted area. Please login to for access."
+  end
+
   before(:each) do
     login
   end
