@@ -17,7 +17,7 @@ feature '/' do
     expect(page).to have_content "Thank you for using File Gravity, goodbye."
   end
 
-  xscenario 'A person cannot login with incorrect credentials' do
+  scenario 'A person cannot login with incorrect credentials' do
     visit '/'
     fill_in 'email', with: 'email@email.com'
     fill_in 'password', with: 'password'
