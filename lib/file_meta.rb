@@ -1,8 +1,4 @@
-#require_relative 'helper'
-
 class FileMeta
-
-  #include Helper
 
   attr_accessor :list, :weight
 
@@ -19,8 +15,6 @@ class FileMeta
 
   def basic_weight(category)
     weight = 0
-    # could use reduce but have to figure out how to. Will probably have to refactor a few methods
-    #list.map { |file| weight = add(file['size'], category)
     category == 'text' ? list.map { |file| weight = add(file['size'], category) if include_file_type(category, file) } :
     list.map { |file| weight = multiply(file['size'], category) if include_file_type(category, file) }
 
@@ -40,10 +34,6 @@ class FileMeta
   end
 
   private
-
-  #def add_basic(category)
-    #add(file['size'], category).reduce(0, &:+)
-  #end
 
   def multiply(size, category)
     (size * gravity(category)) / MB
