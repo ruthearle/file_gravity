@@ -19,12 +19,7 @@ post '/session' do
   client.login
   session['email'] = email
   session['password'] = password
-  #if session['email']
   redirect to '/files'
-  #else
-    #flash[:now] = "Invalid email or password. Pleaase try again."
-    #redirect to '/'
-  #end
 end
 
 
