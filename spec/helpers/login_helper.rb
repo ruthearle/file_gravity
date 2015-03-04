@@ -1,6 +1,6 @@
 module LoginHelper
 
-  def login(email= 'me@ruthearle.com', password= 'makersWelcome')
+  def login(email= 'me@ruthearle.com', password= 'makerswelcome')
     visit '/'
     fill_in "email", with: email
     fill_in "password", with: password

@@ -3,25 +3,15 @@ require_relative '../helpers/login_helper'
 
 include LoginHelper
 
-feature '/homepage' do
+feature '/' do
 
-  before(:each) do
+  scenario 'A person can login' do
     login
-  end
-
-  context 'A person can login' do
-    scenario 'correct credentials' do
-      expect(page).to have_content 'Welcome, me@ruthearle.com'
-    end
-
-    xscenario 'incorrect credentials' do
-      login("me@ruthearle.com", "makerswelcome")
-      expect(current_path).to eq '/'
-      expect(page).to have_content 'Incorrect  email or password. Please try again.'
-    end
+    expect(page).to have_content 'Welcome, me@ruthearle.com'
   end
 
   scenario 'A person can logout' do
+    login
     click_on 'Logout'
     expect(current_path).to eq '/'
     expect(page).to have_content "Thank you for using File Gravity, goodbye."

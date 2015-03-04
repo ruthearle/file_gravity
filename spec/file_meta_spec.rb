@@ -1,7 +1,6 @@
 require 'spec_helper'
 require './lib/file_meta'
 
-  #LIST = YAML::load_file('./spec/fixtures/list.yml')
 describe 'FileMeta' do
   let(:list)  { [{
                   "id"=>14913224,
