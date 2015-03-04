@@ -35,7 +35,7 @@ You will need to have Ruby installed along with Gem and Bundle (I use Ruby Versi
 
 5. Then go to your favourite browser and type: <tt>http//localhost:9292</tt>
 
-6. Input your Workshare registered email address and password or use <tt>me@ruthearle.com</tt> <tt>password</tt>
+6. Input your Workshare registered email address and password and delight!
 
 ##How to run the test suite
 File Gravity is fully tested with Rspec/Capybara (versions 3.2.0 and 2.4.4, respectively).
