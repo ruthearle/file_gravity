@@ -22,11 +22,15 @@ end
 
 
 get '/files' do
-  client = Client.new(session['email'], session['password'])
-  client.login
-  files = client.get_files
-  @data = FileMeta.new(files)
-  erb :files
+  if session['email']
+    client = Client.new(session['email'], session['password'])
+    client.login
+    files = client.get_files
+    @data = FileMeta.new(files)
+    erb :files
+  else
+    erb :error
+  end
 end
 
 delete '/session' do
