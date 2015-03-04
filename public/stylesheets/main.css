@@ -1,0 +1,55 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-image: url('../images/handmadepaper.png')
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+table, th, td {
+  border: 0.1em solid lightgrey;
+  padding: 0.5em;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#data {
+
+  text-align: center;
+}
+
+#totals {
+  border: none;
+  margin-top: 1px;
+
+}
+
+thead {
+  font-weight: 600;
+}
+
+#flash {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  background-color: orange;
+  border-radius: 4px;
+  box-shadow: 0 0 3px black;
+  color: white;
+}
+
+footer {
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:30px;
+  width:100%;
+  text-align: right;
+}
+
+  footer p {
+    padding: 5px 15px;
+  }
+

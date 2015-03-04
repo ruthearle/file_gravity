@@ -1,11 +1,13 @@
 require 'sinatra'
 require 'sinatra/flash'
+require 'sinatra/partial'
 require_relative './lib/client.rb'
 require_relative './lib/file_meta.rb'
 
 
 enable :sessions, :method_override
 set :session_secret, 'super secret'
+set :partial_template_engine, :erb
 
 get '/' do
   erb :index
@@ -17,7 +19,12 @@ post '/session' do
   client.login
   session['email'] = email
   session['password'] = password
+  #if session['email']
   redirect to '/files'
+  #else
+    #flash[:now] = "Invalid email or password. Pleaase try again."
+    #redirect to '/'
+  #end
 end
 
 
