@@ -1,8 +1,8 @@
-File Gravity
+[File Gravity](https://file-gravity.herokuapp.com/) 
 ===========
 
 ![https://file-gravity.herokuapp.com/](https://www.evernote.com/shard/s31/sh/219f85f6-6637-4404-9874-9a53d7d21eaf/05bc9390195c0077517e3e6694d111cb/deep/0/File-Gravity.png)
-
+Live online with Heroku
 
 ##Problem statement
 
@@ -21,7 +21,7 @@ File types are Songs, Videos, Documents (office, openoffice,...), Text, Binaries
 
 ##To Run the App Locally
 
-You will need to have Ruby installed along with Gem and Bundle (I use Ruby Version Manager and you can get started [here](http://rvm.io/)).
+You will need to have Ruby installed along with Gem and Bundle (I use Ruby Version Manager and you can get started [here](http://rvm.io/)) and you have an account with [Workshare](http://www.workshare.com/) (email and password).
 
 #####From the commandline:
 
@@ -35,7 +35,7 @@ You will need to have Ruby installed along with Gem and Bundle (I use Ruby Versi
 
 5. Then go to your favourite browser and type: <tt>http//localhost:9292</tt>
 
-6. Input your Workshare registered email address and password or use <tt>me@ruthearle.com</tt>, <tt>password</tt>.
+6. Input your Workshare registered email address and password or use <tt>me@ruthearle.com</tt> <tt>password</tt>
 
 ##How to run the test suite
 File Gravity is fully tested with Rspec/Capybara (versions 3.2.0 and 2.4.4, respectively).
@@ -46,7 +46,7 @@ File Gravity is fully tested with Rspec/Capybara (versions 3.2.0 and 2.4.4, resp
 
 ##Improvements?
 
-I would make two initial improvements to the app.
+I would make two improvements to the app.
 
 Firstly, the app has a Preek smell of eight. Four of those smells come from the <tt>#basic_weight</tt> method in the <tt>.FileMeta</tt> class. Given more time I would refactor the code to reduce the amount of statements the <tt>#basic_weight</tt>method has and remove the duplicate method calls, which in turn would eliminate the smell.
 
