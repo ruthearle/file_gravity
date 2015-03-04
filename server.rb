@@ -52,6 +52,5 @@ delete '/session' do
 end
 
 error do
-  @error = request.env['sinatra-error']
   erb :error
 end
